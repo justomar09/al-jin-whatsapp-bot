@@ -22,8 +22,7 @@ COPY . .
 # Create directories for persistent data (session, state, vault)
 RUN mkdir -p /app/instances
 
-# The WhatsApp login (session), settings and state live in instances/ — mount it as a volume
-VOLUME ["/app/instances"]
+# The WhatsApp login (session), settings and state live in instances/ — on Railway, attach a Railway Volume mounted at /app/instances
 
 # Keep RSS small: fewer glibc malloc arenas, return freed memory early
 ENV MALLOC_ARENA_MAX=2
